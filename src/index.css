@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+:root {
+  /* Monochrome Professional Palette */
+  --color-pure-white: #ffffff;
+  --color-paper-white: #fefefe;
+  --color-light-gray: #f8f9fa;
+  --color-medium-gray: #e9ecef;
+  --color-dark-gray: #6c757d;
+  --color-charcoal: #343a40;
+  --color-deep-black: #212529;
+  --color-pure-black: #000000;
+  
+  /* Accent grays */
+  --color-warm-gray: #f5f5f5;
+  --color-cool-gray: #f1f3f4;
+  --color-subtle-gray: #adb5bd;
+  
+  /* Typography - Modern System Fonts */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Times New Roman', serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  /* Base colors */
+  color: var(--color-charcoal);
+  background-color: var(--color-pure-white);
+  
+  /* Text rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Paper Texture Background */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0,0,0,0.02) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(0,0,0,0.015) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.01) 1px, transparent 1px);
+  background-size: 8px 8px, 12px 12px, 16px 16px;
+  background-position: 0 0, 4px 4px, 8px 8px;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle Letter Paper Effect */
+.letter-paper {
+  position: relative;
+  background-color: var(--color-paper-white);
+}
+
+.letter-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 0%, transparent 40px, rgba(0,0,0,0.05) 40px, rgba(0,0,0,0.05) 41px, transparent 41px),
+    radial-gradient(circle at 20% 80%, rgba(0,0,0,0.02) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(0,0,0,0.015) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(0,0,0,0.01) 1px, transparent 1px);
+  background-size: 100% 100%, 6px 6px, 8px 8px, 10px 10px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Monochrome color classes */
+.bg-pure-white { background-color: var(--color-pure-white); }
+.bg-paper-white { background-color: var(--color-paper-white); }
+.bg-light-gray { background-color: var(--color-light-gray); }
+.bg-medium-gray { background-color: var(--color-medium-gray); }
+.bg-warm-gray { background-color: var(--color-warm-gray); }
+.bg-cool-gray { background-color: var(--color-cool-gray); }
+.bg-dark-gray { background-color: var(--color-dark-gray); }
+.bg-charcoal { background-color: var(--color-charcoal); }
+.bg-deep-black { background-color: var(--color-deep-black); }
+.bg-pure-black { background-color: var(--color-pure-black); }
+
+.text-pure-white { color: var(--color-pure-white); }
+.text-paper-white { color: var(--color-paper-white); }
+.text-light-gray { color: var(--color-light-gray); }
+.text-medium-gray { color: var(--color-medium-gray); }
+.text-warm-gray { color: var(--color-warm-gray); }
+.text-dark-gray { color: var(--color-dark-gray); }
+.text-subtle-gray { color: var(--color-subtle-gray); }
+.text-charcoal { color: var(--color-charcoal); }
+.text-deep-black { color: var(--color-deep-black); }
+.text-pure-black { color: var(--color-pure-black); }
+
+.border-light-gray { border-color: var(--color-light-gray); }
+.border-medium-gray { border-color: var(--color-medium-gray); }
+.border-dark-gray { border-color: var(--color-dark-gray); }
+.border-charcoal { border-color: var(--color-charcoal); }
+
+/* Modern animations and transitions */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Premium card styling - Monochrome Professional */
+.premium-card {
+  background: var(--color-paper-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-medium-gray);
+}
+
+.premium-card-dark {
+  background: var(--color-charcoal);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-dark-gray);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-light-gray);
+}
+
+.glass-effect-dark {
+  background: rgba(52, 58, 64, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-dark-gray);
+}
+
+/* Typography classes - Professional */
+.premium-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.premium-subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.premium-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Times New Roman', serif;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.premium-accent {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
+/* Premium button styles - Monochrome */
+.premium-button {
+  background: var(--color-deep-black);
+  color: var(--color-pure-white);
+  border: 1px solid var(--color-charcoal);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.premium-button:hover {
+  background: var(--color-charcoal);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.premium-button:active {
+  transform: translateY(0);
+}
+
+.premium-button-secondary {
+  background: var(--color-light-gray);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-medium-gray);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.premium-button-secondary:hover {
+  background: var(--color-medium-gray);
+  transform: translateY(-1px);
+}
+
+.premium-button-gold {
+  background: var(--color-pure-white);
+  color: var(--color-deep-black);
+  border: 2px solid var(--color-deep-black);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.premium-button-gold:hover {
+  background: var(--color-deep-black);
+  color: var(--color-pure-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll indicators */
+.scroll-indicator {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 50;
+}
+
+.scroll-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-medium-gray);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.scroll-dot.active {
+  background: var(--color-charcoal);
+  transform: scale(1.5);
+}
+
+.scroll-dot:hover {
+  background: var(--color-dark-gray);
+}
+
+/* Horizontal scroll container */
+.horizontal-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+.horizontal-scroll-snap {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.horizontal-scroll-item {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* Link styles */
+a {
+  color: var(--color-charcoal);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-deep-black);
+}

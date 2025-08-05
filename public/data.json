@@ -1,0 +1,78 @@
+{
+    "storytelling": {
+        "slides": [
+            {
+                "id": 1,
+                "title": "Bienvenida",
+                "styles": [
+                    "humorístico",
+                    "poético"
+                ],
+                "quote": "Si escaneaste este QR, oficialmente ya somos algo (aunque sea desconocidos).",
+                "subtext": [
+                    "Esta página es una invitación exclusiva y personal, creada especialmente para ti.",
+                    "¿Intrigada? Excelente, sigamos..."
+                ]
+            },
+            {
+                "id": 2,
+                "title": "La Razón de Todo Esto",
+                "quote": "Podría haberte abordado en el gimnasio, pero honestamente, sé lo molesto que es cuando alguien interrumpe tu rutina. Además, tú mereces algo más original.",
+                "points": [
+                    "Me parece que eres especial, y las personas especiales merecen gestos especiales.",
+                    "Y bueno, porque todos odiamos ser interrumpidos cuando entrenamos, ¿no?"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Por qué tú (en serio, esto es importante)",
+                "points": [
+                    "Desde el primer día que te vi en el gimnasio, noté algo diferente en ti.",
+                    "No fue hasta verte muchas (en serio, MUCHAS) veces allí, enfocada, disciplinada y apasionada, que pensé: 'Esa chica vale la pena conocerla.'",
+                    "Confesión rápida: Siempre que llego al gimnasio, busco discretamente si estás (no de forma creepy, lo prometo)."
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Fun Facts",
+                "points": [
+                    "Me encanta el deporte. Creo que en eso ya tenemos bastante en común.",
+                    "Valoro mucho a las personas con grandes aspiraciones. Sospecho que eres una de ellas.",
+                    "Soy programador. Literalmente programé esta página solo para ti. (Sí, estoy presumiendo).",
+                    "Quiero lanzarme en paracaídas algún día.",
+                    "Soy más de playa y sol.",
+                    "Si tuviera un superpoder, sería la telequinesis. (Nada de tráfico, todo fácil)"
+                ],
+                "imagePlaceholder": "fun_facts_image.png"
+            },
+            {
+                "id": 5,
+                "title": "Preguntas Serias",
+                "questions": [
+                    "¿Qué te gusta hacer en tus tiempos libres?",
+                    "¿Que playlist de Spotify te define mejor?",
+                    "¿Crees que soy cool?",
+                    "Pareces modelo, ¿lo eres o solo entrenas demasiado bien?",
+                    "¿De verdad crees que soy cool?",
+                    "¿Crees que podríamos ser amigos?"
+                ]
+            },
+            {
+                "id": 6,
+                "title": "Call to Action Principal",
+                "quote": "Te propongo algo sencillo y divertido: ¿Entrenamos juntos un día? Sin presiones, sin interrupciones, solo una sesión casual para conocernos mejor.",
+                "cta": {
+                    "type": "primary",
+                    "label": "Entrenar juntos",
+                    "action": "#contacto"
+                }
+            },
+            {
+                "id": "final",
+                "title": "Despedida",
+                "quote": "Gracias por llegar hasta aquí. Independientemente de tu respuesta, ya valió la pena crear esto solo por hacerte sonreír.",
+                "postscript": "PD: Espero que al menos esto te haya sacado una sonrisa genuina."
+            }
+        ]
+    }
+}
