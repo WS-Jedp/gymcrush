@@ -35,27 +35,6 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
           className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-black/3 rounded-full blur-2xl"
           style={{ y: y2 }}
         />
-        
-        {/* Floating Dots */}
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-black/20 rounded-full"
-            style={{
-              left: `${20 + i * 20}%`,
-              top: `${30 + i * 10}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
       </div>
 
       {/* Main Content */}
@@ -65,20 +44,9 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
           style={{ y: y1 }}
           className="text-center mb-12"
         >
-          {/* Crown Icon */}
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.2, type: "spring", bounce: 0.2 }}
-            className="mb-8"
-          >
-            <div className="w-16 h-16 mx-auto bg-charcoal rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-2xl text-pure-white">👑</span>
-            </div>
-          </motion.div>
 
           {/* Title with Elegant Typography */}
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-deep-black mb-8 premium-title">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-deep-black mb-4 premium-title">
             {slide.title.split(" ").map((word, wordIndex) => (
               <motion.span
                 key={wordIndex}
@@ -91,7 +59,7 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
                   ease: [0.215, 0.61, 0.355, 1],
                 }}
               >
-                {word}
+                {word}*
               </motion.span>
             ))}
           </h1>
@@ -101,8 +69,15 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
             initial={{ width: 0 }}
             whileInView={{ width: "4rem" }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="mx-auto h-px bg-charcoal mb-8"
+            className="mx-auto h-px bg-charcoal mb-4"
           />
+
+          <p className='text-xs font-light text-charcoal text-end'>
+             De origen hebreo (derivado de "shoshan" o "shoshannah"), significa "lirio" o "rosa", y se asocia con la belleza, pureza e inocencia.
+          </p>
+          <p className='text-xs font-light text-charcoal text-end mt-1'>
+            - Yep, no es una coincidencia tu nombre
+          </p>
         </motion.div>
 
         {/* Quote Section */}
@@ -111,10 +86,10 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="premium-card p-8 md:p-12 max-w-3xl mx-auto"
+          className="p-8 md:p-12 max-w-3xl mx-auto"
         >
-          <blockquote className="text-xl md:text-2xl text-charcoal leading-relaxed mb-6 font-serif italic text-center">
-            "{slide.quote}"
+          <blockquote className="text-xl md:text-2xl text-charcoal leading-relaxed mb-6 font-serif italic text-start">
+            {slide.quote}
           </blockquote>
 
           {slide.subtext && (
@@ -129,7 +104,7 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
                     delay: 0.7 + index * 0.1,
                     ease: [0.215, 0.61, 0.355, 1]
                   }}
-                  className="text-lg text-dark-gray leading-relaxed text-center premium-text"
+                  className="text-lg text-dark-gray leading-relaxed text-center premium-text text-start"
                 >
                   {text}
                 </motion.p>
@@ -158,13 +133,7 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
       ref={ref}
       className="relative h-screen flex items-center justify-center bg-deep-black paper-texture"
     >
-      {/* Subtle Background Elements */}
-      <motion.div
-        className="absolute top-1/3 left-1/4 w-32 h-32 border border-white/20 rounded-full"
-        style={{ y: y1 }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
+      
       
       <div className="relative z-10 max-w-6xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full">
         {/* Title Section */}
@@ -181,7 +150,7 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
               transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
               className="block"
             >
-              La Razón
+              Personas Especiales
             </motion.span>
             <motion.span
               initial={{ y: 80, opacity: 0 }}
@@ -189,7 +158,7 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
               transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
               className="block text-medium-gray"
             >
-              de Todo Esto
+              Merecen Gestos Especiales
             </motion.span>
           </motion.h2>
 
@@ -211,12 +180,12 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
             initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="premium-card-dark p-8 md:p-12"
+            className="p-8 md:p-12"
           >
             {/* Quote with Elegant Border */}
             <div className="border-l-2 border-white pl-6 mb-8">
               <blockquote className="text-xl md:text-2xl text-pure-white leading-relaxed font-serif italic">
-                "{slide.quote}"
+                {slide.quote}
               </blockquote>
             </div>
 
@@ -327,12 +296,12 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
                   ease: [0.215, 0.61, 0.355, 1]
                 }}
                 whileHover={{ y: -2 }}
-                className="premium-card p-6 md:p-8 group cursor-pointer"
+                className="p-6 md:p-8 group cursor-pointer"
               >
                 <div className="flex items-start space-x-6">
                   {/* Number */}
                   <motion.div
-                    className="w-10 h-10 bg-deep-black text-pure-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm"
+                    className="w-10 h-10 text-deep-black rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm"
                     whileInView={{ rotate: [0, 360] }}
                     transition={{ duration: 1, delay: index * 0.2 + 0.5 }}
                   >
@@ -363,31 +332,48 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
   );
 };
 
-// Fun Facts with Dark Background
+// Fun Facts with Full Screen Individual Facts - Dark Background
 export const RomanticFunFactsSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
+  const { horizontalSlideIndex, setHorizontalSlideIndex } = useSlideStore();
   const ref = useRef<HTMLDivElement>(null);
+
+  // Different image sets for each fun fact
+  const factImageSets = [
+    ["🎨", "🖌️", "🎭", "🌈", "✨", "🎪", "🎬", "📸", "🎵", "🎸"],
+    ["📚", "✍️", "📝", "💭", "🧠", "💡", "📖", "📰", "📑", "📊"],
+    ["🍷", "🥂", "🍾", "🥃", "☕", "🍸", "🧊", "🌟", "💫", "✨"],
+    ["🌍", "✈️", "🏔️", "🌊", "🏖️", "🌅", "🗺️", "🧳", "📍", "🌎"],
+    ["🎯", "🏆", "⚡", "🔥", "💪", "🚀", "⭐", "💎", "👑", "🏅"],
+    ["❤️", "💝", "🌹", "💕", "💖", "🦋", "🌸", "💐", "🌺", "🌻"]
+  ];
+
+  const getCurrentImageSet = () => {
+    return factImageSets[horizontalSlideIndex] || factImageSets[0];
+  };
+
+  const currentFact = slide.points?.[horizontalSlideIndex] || slide.points?.[0] || "";
 
   return (
     <motion.div
       ref={ref}
-      className="relative h-screen flex items-center justify-center bg-charcoal paper-texture overflow-hidden"
+      className="relative h-screen flex flex-col bg-charcoal paper-texture overflow-hidden"
     >
       {/* Animated Background Pattern */}
-      <div className="absolute inset-0">
-        {[...Array(6)].map((_, i) => (
+      <div className="absolute inset-0 opacity-10">
+        {[...Array(4)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-24 h-24 border border-white/10 rounded-full"
+            className="absolute w-32 h-32 border border-white rounded-full"
             style={{
-              left: `${15 + i * 15}%`,
-              top: `${25 + (i % 3) * 20}%`,
+              left: `${20 + i * 25}%`,
+              top: `${30 + (i % 2) * 40}%`,
             }}
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
-              duration: 5 + i,
+              duration: 6 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -395,197 +381,437 @@ export const RomanticFunFactsSlide: React.FC<MonochromeSlideProps> = ({ slide })
         ))}
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 py-20 h-full flex flex-col justify-center">
-        {/* Title Section */}
+      <div className="relative z-10 flex flex-col h-full">
+        
+        {/* Compact Header with Title and Navigation */}
         <motion.div
-          initial={{ y: 40, opacity: 0 }}
+          initial={{ y: -30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="flex-shrink-0 pt-8 pb-4 px-8"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-pure-white mb-4 premium-title">
-            {slide.title.split(" ").map((word, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
-                className="inline-block mr-4"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </h2>
-         
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-pure-white">
+              {slide.title}
+            </h2>
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+              <span className="text-sm text-charcoal">💫</span>
+            </div>
+          </div>
+          
+          {/* Compact Navigation Bar */}
+          {slide.points && slide.points.length > 1 && (
+            <div className="flex items-center justify-between space-x-2 px-4 py-2 ">
+              <div className='flex flex-row flex-nowrap items-center justify-between'>
+                <div className="flex space-x-1">
+                {slide.points.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setHorizontalSlideIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === horizontalSlideIndex
+                        ? 'bg-white w-6'
+                        : 'bg-white/40 hover:bg-white/60'
+                    }`}
+                    aria-label={`Fact ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+                <span className="text-xs text-white/70 ml-2 font-mono">
+                    {horizontalSlideIndex + 1}/{slide.points.length}
+                </span>
+              </div>
+
+              <div className='flex flex-row flex-nowrap items-center justify-end space-x-2'>
+                <button
+                    onClick={() => setHorizontalSlideIndex(
+                    horizontalSlideIndex > 0 ? horizontalSlideIndex - 1 : slide.points!.length - 1
+                    )}
+                    className="w-8 h-8 bg-white/20 text-white rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200"
+                    aria-label="Anterior"
+                >
+                    ←
+                </button>
+                <button
+                    onClick={() => setHorizontalSlideIndex(
+                    horizontalSlideIndex < slide.points!.length - 1 ? horizontalSlideIndex + 1 : 0
+                    )}
+                    className="w-8 h-8 bg-white/20 text-white rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200"
+                    aria-label="Siguiente"
+                >
+                    →
+                </button>
+                </div>
+            </div>
+          )}
         </motion.div>
 
-        {/* Facts Grid */}
-        {slide.points && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {slide.points.map((fact, index) => (
-              <motion.div
-                key={index}
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  ease: [0.215, 0.61, 0.355, 1]
-                }}
-                whileHover={{ 
-                  scale: 1.02, 
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
-                className="premium-card-dark p-6 group cursor-pointer"
-              >
-                <div className="flex items-start space-x-4">
-                  {/* Number Badge */}
-                  <motion.div
-                    className="w-8 h-8 bg-pure-white text-deep-black rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs"
-                    whileHover={{ rotate: 180 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    {index + 1}
-                  </motion.div>
-                  
-                  {/* Fact Content */}
-                  <p className="text-base md:text-lg text-light-gray leading-relaxed group-hover:text-pure-white transition-colors duration-300 premium-text">
-                    {fact}
-                  </p>
-                </div>
-
-                {/* Hover Decoration */}
-                <motion.div
-                  className="mt-4 h-px bg-white opacity-0 group-hover:opacity-100"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
-              </motion.div>
-            ))}
+        {/* Compact Main Content with Swipe Gesture */}
+        <motion.div
+          key={horizontalSlideIndex}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+          className="flex-1 flex items-center justify-center px-8 py-4"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.3}
+          onDragEnd={(_, info) => {
+            const threshold = 50;
+            if (info.offset.x > threshold) {
+              // Swipe right - go to previous fact
+              setHorizontalSlideIndex(
+                horizontalSlideIndex > 0 ? horizontalSlideIndex - 1 : slide.points!.length - 1
+              );
+            } else if (info.offset.x < -threshold) {
+              // Swipe left - go to next fact
+              setHorizontalSlideIndex(
+                horizontalSlideIndex < slide.points!.length - 1 ? horizontalSlideIndex + 1 : 0
+              );
+            }
+          }}
+          whileDrag={{ 
+            scale: 0.98,
+            cursor: "grabbing"
+          }}
+        >
+          <div className="max-w-4xl mx-auto">
+            <motion.p 
+              className="text-xl md:text-2xl lg:text-3xl text-light-gray leading-relaxed text-center select-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              {currentFact.split(" ").map((word, wordIndex) => (
+                <motion.span
+                  key={`${horizontalSlideIndex}-${wordIndex}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: 0.2 + wordIndex * 0.05 
+                  }}
+                  className="inline-block mr-2"
+                  whileHover={{ 
+                    y: -3, 
+                    color: "#ffffff",
+                    transition: { duration: 0.15 } 
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.p>
+            
+            {/* Swipe Indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="flex justify-center mt-6 text-white/10 text-sm"
+            >
+              <span className="flex items-center space-x-2">
+                <span>←</span>
+                <span>Desliza para navegar</span>
+                <span>→</span>
+              </span>
+            </motion.div>
           </div>
-        )}
+        </motion.div>
+
+        {/* Compact Bottom Slider */}
+        <motion.div
+          key={`slider-${horizontalSlideIndex}`}
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex-shrink-0 pb-6 px-4 overflow-hidden"
+        >
+            <h2 className='text-white/30 text-sm font-light italic text-center py-5'>
+                (Estos podríamos ser nosotros, mira lo feliz que estas)*
+            </h2>
+          <div className="relative h-12">
+            {/* Compact Infinite Slider */}
+            <motion.div
+              className="flex space-x-3"
+              animate={{ x: [0, -1200] }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+                  {/* First set of images */}
+              {getCurrentImageSet().map((emoji, index) => (
+                <motion.div
+                  key={`first-${horizontalSlideIndex}-${index}`}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.02 }}
+                  className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-lg"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    transition: { duration: 0.15 } 
+                  }}
+                >
+                  {emoji}
+                </motion.div>
+              ))}
+              {/* Duplicate sets for seamless loop */}
+              {getCurrentImageSet().map((emoji, index) => (
+                <motion.div
+                  key={`second-${horizontalSlideIndex}-${index}`}
+                  className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-lg"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    transition: { duration: 0.15 } 
+                  }}
+                >
+                  {emoji}
+                </motion.div>
+              ))}
+              {getCurrentImageSet().map((emoji, index) => (
+                <motion.div
+                  key={`third-${horizontalSlideIndex}-${index}`}
+                  className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-lg"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    transition: { duration: 0.15 } 
+                  }}
+                >
+                  {emoji}
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Compact gradient overlays */}
+            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-charcoal to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-charcoal to-transparent pointer-events-none" />
+          </div>
+        </motion.div>
+
       </div>
     </motion.div>
   );
 };
 
-// Questions Slide with Horizontal Scroll - White Background
+// Questions Slide with Full Screen Individual Questions - White Background
 export const RomanticQuestionsSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
   const { horizontalSlideIndex, setHorizontalSlideIndex } = useSlideStore();
   const ref = useRef<HTMLDivElement>(null);
 
+  // Sample images for the infinite slider (you can replace with actual images)
+  const sliderImages = [
+    "📸", "🌟", "💫", "✨", "🎭", "🎨", "🎪", "🎬", "🎵", "🎸",
+    "📚", "☕", "🌙", "⭐", "🌸", "🦋", "🎯", "🎲", "🎊", "🎈"
+  ];
+
+  const currentQuestion = slide.questions?.[horizontalSlideIndex] || slide.questions?.[0] || "";
+
   return (
     <motion.div
       ref={ref}
-      className="relative h-screen flex flex-col items-center justify-center bg-pure-white letter-paper overflow-hidden"
+      className="relative h-screen flex flex-col bg-pure-white letter-paper overflow-hidden"
     >
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        {[...Array(4)].map((_, i) => (
+      <div className="absolute inset-0 opacity-5">
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-12 h-12 border border-charcoal rounded-full"
+            className="absolute w-16 h-16 border border-charcoal rounded-full"
             style={{
-              left: `${25 + i * 20}%`,
-              top: `${30 + (i % 2) * 25}%`,
+              left: `${30 + i * 25}%`,
+              top: `${25 + i * 20}%`,
             }}
             animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
-              duration: 8 + i * 2,
+              duration: 6 + i * 2,
               repeat: Infinity,
-              ease: "linear",
+              ease: "easeInOut",
             }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-8 py-20 h-full flex flex-col justify-center">
-        {/* Title Section */}
+      <div className="relative z-10 flex flex-col h-full">
+        
+        {/* Header Section with Title */}
         <motion.div
-          initial={{ y: 40, opacity: 0 }}
+          initial={{ y: -50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="flex-shrink-0 pt-12 pb-8 px-8 text-center"
         >
-          <div className="w-16 h-16 mx-auto mb-6 bg-charcoal rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-xl text-pure-white">❓</span>
+          <div className="w-12 h-12 mx-auto mb-6 bg-charcoal rounded-full flex items-center justify-center">
+            <span className="text-lg text-pure-white">❓</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-deep-black mb-4 premium-title">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-deep-black hero-text">
             {slide.title}
           </h2>
         </motion.div>
 
-        {/* Horizontal Scroll Container */}
-        {slide.questions && (
-          <div className="relative">
-            <div className="horizontal-scroll horizontal-scroll-snap flex space-x-6 overflow-x-auto pb-4 scrollbar-hide">
-              {slide.questions.map((question, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="horizontal-scroll-item premium-card min-w-80 max-w-80 p-6 md:p-8 flex-shrink-0 cursor-pointer"
-                  onClick={() => setHorizontalSlideIndex(index)}
-                  whileHover={{ scale: 1.02, y: -5 }}
+        {/* Main Question Content - Centered */}
+        <motion.div
+          key={horizontalSlideIndex}
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: -30 }}
+          transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+          className="flex-1 flex items-center justify-center px-8"
+        >
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              className="mb-8"
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            >
+              <div className="w-16 h-16 mx-auto mb-8 bg-deep-black text-pure-white rounded-full flex items-center justify-center font-bold text-xl">
+                #{horizontalSlideIndex + 1}
+              </div>
+            </motion.div>
+            
+            <motion.p 
+              className="text-3xl md:text-4xl lg:text-5xl text-charcoal leading-relaxed large-quote"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {currentQuestion.split(" ").map((word, wordIndex) => (
+                <motion.span
+                  key={`${horizontalSlideIndex}-${wordIndex}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: 0.3 + wordIndex * 0.1 
+                  }}
+                  className="inline-block mr-3"
+                  whileHover={{ 
+                    y: -5, 
+                    transition: { duration: 0.2 } 
+                  }}
                 >
-                  <div className="h-full flex flex-col justify-between">
-                    <div>
-                      <div className="w-8 h-8 bg-deep-black text-pure-white rounded-full flex items-center justify-center mb-6 font-bold text-xs">
-                        Q{index + 1}
-                      </div>
-                      <p className="text-lg text-charcoal leading-relaxed font-serif premium-text">
-                        {question}
-                      </p>
-                    </div>
-                    
-                    <div className="mt-6 flex items-center justify-between">
-                      <div className="flex space-x-1">
-                        {slide.questions!.map((_, dotIndex) => (
-                          <div
-                            key={dotIndex}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                              dotIndex === horizontalSlideIndex
-                                ? 'bg-charcoal w-4'
-                                : 'bg-medium-gray'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-sm text-dark-gray font-serif italic">
-                        {index + 1} / {slide?.questions?.length}
-                      </span>
-                    </div>
-                  </div>
+                  {word}
+                </motion.span>
+              ))}
+            </motion.p>
+
+            {/* Question Counter */}
+            {slide.questions && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="text-lg text-dark-gray mt-8 font-serif italic"
+              >
+                Pregunta {horizontalSlideIndex + 1} de {slide.questions.length}
+              </motion.p>
+            )}
+          </div>
+        </motion.div>
+
+        {/* Bottom Infinite Slider */}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex-shrink-0 pb-8 px-4 overflow-hidden"
+        >
+          <div className="relative">
+            {/* Infinite Slider Container */}
+            <motion.div
+              className="flex space-x-6"
+              animate={{ x: [0, -1920] }}
+              transition={{
+                duration: 30,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {/* First set of images */}
+              {sliderImages.map((emoji, index) => (
+                <motion.div
+                  key={`first-${index}`}
+                  className="flex-shrink-0 w-16 h-16 bg-light-gray rounded-full flex items-center justify-center text-2xl"
+                  whileHover={{ 
+                    scale: 1.2, 
+                    backgroundColor: "#e9ecef",
+                    transition: { duration: 0.2 } 
+                  }}
+                >
+                  {emoji}
                 </motion.div>
               ))}
-            </div>
-
-            {/* Horizontal Scroll Indicators */}
-            <div className="flex justify-center mt-8 space-x-2">
-              {slide.questions.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setHorizontalSlideIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === horizontalSlideIndex
-                      ? 'bg-charcoal scale-125'
-                      : 'bg-medium-gray hover:bg-dark-gray'
-                  }`}
-                  aria-label={`Pregunta ${index + 1}`}
-                />
+              {/* Duplicate set for seamless loop */}
+              {sliderImages.map((emoji, index) => (
+                <motion.div
+                  key={`second-${index}`}
+                  className="flex-shrink-0 w-16 h-16 bg-light-gray rounded-full flex items-center justify-center text-2xl"
+                  whileHover={{ 
+                    scale: 1.2, 
+                    backgroundColor: "#e9ecef",
+                    transition: { duration: 0.2 } 
+                  }}
+                >
+                  {emoji}
+                </motion.div>
               ))}
-            </div>
+              {/* Third set for extra smoothness */}
+              {sliderImages.map((emoji, index) => (
+                <motion.div
+                  key={`third-${index}`}
+                  className="flex-shrink-0 w-16 h-16 bg-light-gray rounded-full flex items-center justify-center text-2xl"
+                  whileHover={{ 
+                    scale: 1.2, 
+                    backgroundColor: "#e9ecef",
+                    transition: { duration: 0.2 } 
+                  }}
+                >
+                  {emoji}
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Gradient overlays for fade effect */}
+            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-pure-white to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-pure-white to-transparent pointer-events-none" />
           </div>
+        </motion.div>
+
+        {/* Navigation Controls */}
+        {slide.questions && slide.questions.length > 1 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="absolute left-6 right-6 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none"
+          >
+            <button
+              onClick={() => setHorizontalSlideIndex(
+                horizontalSlideIndex > 0 ? horizontalSlideIndex - 1 : slide.questions!.length - 1
+              )}
+              className="w-12 h-12 bg-charcoal text-pure-white rounded-full flex items-center justify-center pointer-events-auto hover:bg-deep-black transition-colors duration-300"
+              aria-label="Pregunta anterior"
+            >
+              ←
+            </button>
+            <button
+              onClick={() => setHorizontalSlideIndex(
+                horizontalSlideIndex < slide.questions!.length - 1 ? horizontalSlideIndex + 1 : 0
+              )}
+              className="w-12 h-12 bg-charcoal text-pure-white rounded-full flex items-center justify-center pointer-events-auto hover:bg-deep-black transition-colors duration-300"
+              aria-label="Siguiente pregunta"
+            >
+              →
+            </button>
+          </motion.div>
         )}
       </div>
     </motion.div>
@@ -649,7 +875,7 @@ export const RomanticCallToActionSlide: React.FC<MonochromeSlideProps> = ({ slid
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="premium-card-dark p-8 md:p-12 mb-12"
+            className="p-8 md:p-12 mb-12"
           >
             <p className="text-xl md:text-2xl text-light-gray leading-relaxed font-serif italic">
               "{slide.quote}"
@@ -755,7 +981,7 @@ export const RomanticFinalSlide: React.FC<MonochromeSlideProps> = ({ slide }) =>
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="premium-card p-8 md:p-12 mb-8"
+            className="p-8 md:p-12 mb-8"
           >
             <blockquote className="text-xl md:text-2xl text-charcoal leading-relaxed font-serif italic">
               "{slide.quote}"

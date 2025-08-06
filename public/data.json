@@ -3,20 +3,19 @@
         "slides": [
             {
                 "id": 1,
-                "title": "Bienvenida",
+                "title": "Susana",
                 "styles": [
                     "humorístico",
                     "poético"
                 ],
                 "quote": "Si escaneaste este QR, oficialmente ya somos algo (aunque sea desconocidos).",
                 "subtext": [
-                    "Esta página es una invitación exclusiva y personal, creada especialmente para ti.",
-                    "¿Intrigada? Excelente, sigamos..."
+                    "Esta página es una invitación exclusiva y personal, creada especialmente para ti."
                 ]
             },
             {
                 "id": 2,
-                "title": "La Razón de Todo Esto",
+                "title": "Personas Especiales Merecen Gestos Especiales",
                 "quote": "Podría haberte abordado en el gimnasio, pero honestamente, sé lo molesto que es cuando alguien interrumpe tu rutina. Además, tú mereces algo más original.",
                 "points": [
                     "Me parece que eres especial, y las personas especiales merecen gestos especiales.",
@@ -34,12 +33,11 @@
             },
             {
                 "id": 4,
-                "title": "Fun Facts",
+                "title": "Razones Para Ser Amigos",
                 "points": [
-                    "Me encanta el deporte. Creo que en eso ya tenemos bastante en común.",
+                    "Me encanta el deporte. (A ti también)",
                     "Valoro mucho a las personas con grandes aspiraciones. Sospecho que eres una de ellas.",
-                    "Soy programador. Literalmente programé esta página solo para ti. (Sí, estoy presumiendo).",
-                    "Quiero lanzarme en paracaídas algún día.",
+                    "Soy programador - Esta página solo fue hecha solo para ti desde cero. (Sí, estoy presumiendo).",
                     "Soy más de playa y sol.",
                     "Si tuviera un superpoder, sería la telequinesis. (Nada de tráfico, todo fácil)"
                 ],
