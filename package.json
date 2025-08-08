@@ -9,8 +9,12 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "vite build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -f -r https://$GH_TOKEN@github.com/WS-Jedp/susana-qr-invitation.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WS-Jedp/susana-qr-invitation.git"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
