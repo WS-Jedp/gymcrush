@@ -1,0 +1,132 @@
+{
+    "storytelling": {
+        "slides": [
+            {
+                "id": 1,
+                "title": "Conocerse",
+                "styles": [
+                    "humorístico",
+                    "poético"
+                ],
+                "quote": "",
+                "subtext": [
+                    "Esta página es una invitación exclusiva y personal, creada especialmente para ti."
+                ],
+                "audio": {
+                    "src": "/audio/superstar.mp3",
+                    "loop": {
+                        "start": 1,
+                        "end": 120
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "title": "Personas Especiales Merecen Gestos Especiales",
+                "quote": "Podría haberte abordado en el gimnasio, pero honestamente, sé lo molesto que es cuando alguien interrumpe tu rutina. Además, tú mereces algo más original.",
+                "points": [
+                    "Me parece que eres especial, y las personas especiales merecen gestos especiales.",
+                    "Y bueno, porque todos odiamos ser interrumpidos cuando entrenamos, ¿no?"
+                ],
+                "audio": {
+                    "src": "/audio/superstar.mp3",
+                    "loop": {
+                        "start": 30,
+                        "end": 90
+                    }
+                }
+            },
+            {
+                "id": 3,
+                "title": "Por qué tú (en serio, esto es importante)",
+                "points": [
+                    "Podría haber buscado tu número o soltado un comentario cualquiera en medio de una serie de sentadillas. Pero no. Preferí hacer algo distinto.",
+                    "No para impresionarte. Sino para que sepas que, si decidí acercarme, es porque creo que conocerte vale el intento… y el gesto.'",
+                    "(Además, hacer sitios web es más fácil que hablarle a alguien que te intimida un poquito)."
+                ],
+                "audio": {
+                    "src": "/audio/superstar.mp3",
+                    "loop": {
+                        "start": 30,
+                        "end": 90
+                    }
+                }
+            },
+            {
+                "id": 3.5,
+                "title": "Datos Curiosos sobre mí",
+                "type": "personal_facts",
+                "audio": {
+                    "src": "/audio/hold-on.mp3",
+                    "loop": {
+                        "start": 0,
+                        "end": 90
+                    }
+                }
+            },
+            {
+                "id": 4,
+                "title": "Razones Para Ser Amigos",
+                "points": [
+                    "Te hice un sitio web. ¿Ya dije eso? Bueno, por si acaso.",
+                    "Me gusta entrenar (A ti también te gusta entrenar).",
+                    "Tengo buena intuición con las personas valiosas.",
+                    "No dejaría que nadie te quite o robe las máquinas. 😠",
+                    "Podemos hablar mal de las personas que te roben o quiten las máquinas.",
+                    "Bonus: tengo buenas playlists. (Y acepto recomendaciones)"
+                ],
+                "imagePlaceholder": "fun_facts_image.png",
+                "audio": {
+                    "src": "/audio/hold-on.mp3",
+                    "loop": {
+                        "start": 0,
+                        "end": 90
+                    }
+                }
+            },
+            {
+                "id": 5,
+                "title": "¿Qué me gustaría saber de ti?",
+                "questions": [
+                    "¿Cuál es tu playlist de confianza en el gym para cuando necesitas motivación extra?",
+                    "¿Cuál es el ejercicio que más te emociona dominar?",
+                    "¿Cómo te gusta disfrutar tu tiempo libre cuando no estás entrenando?",
+                    "¿Crees que podríamos llevarnos bien?",
+                    "¿Dijiste la verdad en la pregunta anterior? 😏"
+                ],
+                "audio": {
+                    "src": "/audio/questions.mp3",
+                    "loop": {
+                        "start": 0,
+                        "end": 60
+                    }
+                }
+            },
+            {
+                "id": "cta",
+                "title": "Si te interesa conocerme",
+                "type": "call_to_action",
+                "audio": {
+                    "src": "/audio/questions.mp3",
+                    "loop": {
+                        "start": 0,
+                        "end": 60
+                    }
+                }
+            },
+            {
+                "id": "final",
+                "title": "Despedida",
+                "quote": "Gracias por llegar hasta aquí. Independientemente de tu respuesta, ya valió la pena crear esto solo por hacerte sonreír.",
+                "postscript": "PD: Espero que al menos esto te haya sacado una sonrisa genuina.",
+                "audio": {
+                    "src": "/audio/my-way.mp3",
+                    "loop": {
+                        "start": 192,
+                        "end": 300
+                    }
+                }
+            }
+        ]
+    }
+}
