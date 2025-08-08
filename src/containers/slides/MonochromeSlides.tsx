@@ -116,7 +116,7 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
                     delay: 0.7 + index * 0.1,
                     ease: [0.215, 0.61, 0.355, 1]
                   }}
-                  className="text-md text-dark-gray leading-relaxed text-center premium-text text-start"
+                  className="text-md text-dark-gray leading-relaxed premium-text text-start"
                 >
                   Especialmente cuando la otra persona parece tan enfocada en sus metas que incluso las máquinas del gimnasio parecen pedirle permiso para ser usadas. <br />
 (Sí, hablo de ti 🏋️‍♀️😉)
@@ -368,6 +368,156 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = () => {
   );
 };
 
+// Personal Curious Facts - Dark Background
+export const PersonalCuriousFactsSlide: React.FC<MonochromeSlideProps> = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const curiousFacts = [
+    {
+      text: "Estoy leyendo \"Enamórate del problema, no de la solución\".",
+      subtext: "",
+      icon: "📚"
+    },
+    {
+      text: "Nada como el mar, la playa, el sol y cero notificaciones.",
+      subtext: "",
+      icon: "🌊"
+    },
+    {
+      text: "Café >>> té.",
+      subtext: null,
+      icon: "☕️"
+    },
+    {
+      text: "Perros >>> gatos",
+      subtext: "(aunque a veces me traicionan).",
+      icon: "🐕"
+    },
+    {
+      text: "Prefiero escapadas de día al campo que fiestas de noche en la ciudad.",
+      subtext: "(Aunque...)",
+      icon: "🌿"
+    }
+  ];
+
+  return (
+    <motion.div
+      ref={ref}
+      className="relative h-screen flex items-center justify-center bg-charcoal paper-texture overflow-hidden"
+    >
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-32 h-32 border border-white/5 rounded-full"
+            style={{
+              left: `${10 + i * 20}%`,
+              top: `${20 + (i % 3) * 25}%`,
+            }}
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.05, 0.15, 0.05],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-8 py-20 h-full flex flex-col justify-center">
+        {/* Title Section */}
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center">
+            <span className="text-2xl">🤓</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-pure-white mb-4 premium-title">
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+              className="block"
+            >
+              Fun Facts
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              className="block text-medium-gray text-2xl md:text-3xl"
+            >
+              sobre mí
+            </motion.span>
+          </h2>
+        </motion.div>
+
+        {/* Facts List */}
+        <div>
+          {curiousFacts.map((fact, index) => (
+            <motion.div
+              key={index}
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.15,
+                ease: [0.215, 0.61, 0.355, 1]
+              }}
+              whileHover={{ x: 10, transition: { duration: 0.3 } }}
+              className="group space-y-3"
+            >
+              <div className="flex items-start space-x-6">
+                {/* Icon */}
+                <motion.div
+                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {fact.icon}
+                </motion.div>
+                
+                {/* Content */}
+                <div className="flex-1">
+                  <p className="text-lg md:text-xl text-light-gray leading-relaxed group-hover:text-pure-white transition-colors duration-300 premium-text mb-2">
+                    {fact.text}
+                  </p>
+                    {
+                      fact.subtext && (
+                        <span className="text-sm text-medium-gray italic leading-relaxed group-hover:text-white/70 transition-colors duration-300 premium-text">
+                          {fact.subtext}
+                        </span>
+                      )
+                    }
+                </div>
+              </div>
+
+              {/* Hover Effect Line */}
+              <motion.div
+                className="h-px bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-18"
+                initial={{ width: 0 }}
+                whileInView={{ width: "85%" }}
+                transition={{ duration: 1, delay: index * 0.2 + 0.5 }}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </motion.div>
+  );
+};
+
 // Fun Facts with Full Screen Individual Facts - Dark Background
 export const RomanticFunFactsSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
   const { horizontalSlideIndex, setHorizontalSlideIndex } = useSlideStore();
@@ -383,7 +533,21 @@ export const RomanticFunFactsSlide: React.FC<MonochromeSlideProps> = ({ slide })
     ["❤️", "💝", "🌹", "💕", "💖", "🦋", "🌸", "💐", "🌺", "🌻"]
   ];
 
+  // Real images from public folder (only for second set)
+  const realImages = [
+    "/images/fitness-1.jpg",
+    "/images/fitness-2.jpg", 
+    "/images/fitness-3.jpg",
+    "/images/fitness-4.jpg",
+    "/images/fitness-5.jpg",
+    "/images/fitness-6.jpg",
+  ];
+
   const getCurrentImageSet = () => {
+    // Use real images for index 1 (second set), emojis for all others
+    if (horizontalSlideIndex === 1) {
+      return realImages;
+    }
     return factImageSets[horizontalSlideIndex] || factImageSets[0];
   };
 
@@ -565,9 +729,13 @@ export const RomanticFunFactsSlide: React.FC<MonochromeSlideProps> = ({ slide })
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex-shrink-0 pb-6 px-4 overflow-hidden"
         >
-            <h2 className='text-white/30 text-sm font-light italic text-center py-5'>
-                (Estos podríamos ser nosotros, mira lo feliz que estas)*
-            </h2>
+            {
+              horizontalSlideIndex === 1 && (
+                <h2 className='text-white/30 text-sm font-light italic text-center py-5'>
+                    (Estos podríamos ser nosotros, mira lo feliz que estas)*
+                </h2>
+              )
+            }
           <div className="relative h-12">
             {/* Compact Infinite Slider */}
             <motion.div
@@ -579,50 +747,107 @@ export const RomanticFunFactsSlide: React.FC<MonochromeSlideProps> = ({ slide })
                 ease: "linear",
               }}
             >
-                  {/* First set of images */}
-              {getCurrentImageSet().map((emoji, index) => (
-                <motion.div
-                  key={`first-${horizontalSlideIndex}-${index}`}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.02 }}
-                  className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-lg"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    transition: { duration: 0.15 } 
-                  }}
-                >
-                  {emoji}
-                </motion.div>
-              ))}
+                {/* First set of images */}
+              {getCurrentImageSet().map((item, index) =>  {
+                const isImage = horizontalSlideIndex === 1; // Only second set uses images
+                
+                return (
+                  <motion.div
+                    key={`third-${horizontalSlideIndex}-${index}`}
+                    className={`flex-shrink-0 w-12 h-12 ${
+                      isImage ? 'bg-white/20' : 'bg-white/10'
+                    } rounded-lg flex items-center justify-center overflow-hidden`}
+                    whileHover={{ 
+                      scale: 1.1, 
+                      backgroundColor: isImage ? "rgba(255, 255, 255, 0.3)" : "rgba(255, 255, 255, 0.2)",
+                      transition: { duration: 0.15 } 
+                    }}
+                  >
+                    {isImage ? (
+                      <img 
+                        src={item} 
+                        alt={`Image ${index + 1}`}
+                        className="w-full h-full object-cover rounded-md"
+                        onError={(e) => {
+                          // Fallback to emoji if image fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.parentElement!.innerHTML = '📸';
+                        }}
+                      />
+                    ) : (
+                      <span className="text-lg">{item}</span>
+                    )}
+                  </motion.div>
+                );
+              })}
               {/* Duplicate sets for seamless loop */}
-              {getCurrentImageSet().map((emoji, index) => (
-                <motion.div
-                  key={`second-${horizontalSlideIndex}-${index}`}
-                  className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-lg"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    transition: { duration: 0.15 } 
-                  }}
-                >
-                  {emoji}
-                </motion.div>
-              ))}
-              {getCurrentImageSet().map((emoji, index) => (
-                <motion.div
-                  key={`third-${horizontalSlideIndex}-${index}`}
-                  className="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-lg"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    transition: { duration: 0.15 } 
-                  }}
-                >
-                  {emoji}
-                </motion.div>
-              ))}
+              {getCurrentImageSet().map((item, index) =>  {
+                const isImage = horizontalSlideIndex === 1; // Only second set uses images
+                
+                return (
+                  <motion.div
+                    key={`third-${horizontalSlideIndex}-${index}`}
+                    className={`flex-shrink-0 w-12 h-12 ${
+                      isImage ? 'bg-white/20' : 'bg-white/10'
+                    } rounded-lg flex items-center justify-center overflow-hidden`}
+                    whileHover={{ 
+                      scale: 1.1, 
+                      backgroundColor: isImage ? "rgba(255, 255, 255, 0.3)" : "rgba(255, 255, 255, 0.2)",
+                      transition: { duration: 0.15 } 
+                    }}
+                  >
+                    {isImage ? (
+                      <img 
+                        src={item} 
+                        alt={`Image ${index + 1}`}
+                        className="w-full h-full object-cover rounded-md"
+                        onError={(e) => {
+                          // Fallback to emoji if image fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.parentElement!.innerHTML = '📸';
+                        }}
+                      />
+                    ) : (
+                      <span className="text-lg">{item}</span>
+                    )}
+                  </motion.div>
+                );
+              })}
+              {getCurrentImageSet().map((item, index) => {
+                const isImage = horizontalSlideIndex === 1; // Only second set uses images
+                
+                return (
+                  <motion.div
+                    key={`third-${horizontalSlideIndex}-${index}`}
+                    className={`flex-shrink-0 w-12 h-12 ${
+                      isImage ? 'bg-white/20' : 'bg-white/10'
+                    } rounded-lg flex items-center justify-center overflow-hidden`}
+                    whileHover={{ 
+                      scale: 1.1, 
+                      backgroundColor: isImage ? "rgba(255, 255, 255, 0.3)" : "rgba(255, 255, 255, 0.2)",
+                      transition: { duration: 0.15 } 
+                    }}
+                  >
+                    {isImage ? (
+                      <img 
+                        src={item} 
+                        alt={`Image ${index + 1}`}
+                        className="w-full h-full object-cover rounded-md"
+                        onError={(e) => {
+                          // Fallback to emoji if image fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.parentElement!.innerHTML = '📸';
+                        }}
+                      />
+                    ) : (
+                      <span className="text-lg">{item}</span>
+                    )}
+                  </motion.div>
+                );
+              })}
             </motion.div>
 
             {/* Compact gradient overlays */}
@@ -687,7 +912,7 @@ export const RomanticQuestionsSlide: React.FC<MonochromeSlideProps> = ({ slide }
           className="flex-shrink-0 pt-12 pb-8 px-8 text-center"
         >
           <div className="w-12 h-12 mx-auto mb-6 bg-charcoal rounded-full flex items-center justify-center">
-            <span className="text-lg text-pure-white">❓</span>
+            <span className="text-lg text-pure-white">👀</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-deep-black hero-text">
             {slide.title}
@@ -854,6 +1079,93 @@ export const RomanticQuestionsSlide: React.FC<MonochromeSlideProps> = ({ slide }
   );
 };
 
+// Call to Action Slide with Contact Information - Dark Background
+export const CallToActionSlide: React.FC<MonochromeSlideProps> = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  return (
+    <motion.div
+      ref={ref}
+      className="relative h-screen flex items-center justify-center bg-light-gray letter-paper overflow-hidden"
+    >
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0">
+        <motion.div
+          className="absolute top-1/4 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.05, 0.15, 0.05],
+          }}
+          transition={{ duration: 6, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-white/3 rounded-full blur-2xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.03, 0.1, 0.03],
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-8 text-center h-full flex flex-col justify-between p-16">
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 space-y-2"
+        >
+          <h2 className="text-2xl italic font-serif font-semibold text-charcoal leading-relaxed text-deep-black text-start">
+            Tengo muchas más preguntas
+          </h2>
+          <h2 className="text-lg font-serif text-deep-black text-start">
+            pero solo las haré si esta propuesta logró su objetivo:
+          </h2>
+            <p className='text-lg font-serif text-deep-black text-start font-light'>
+            Que te nazca la curiosidad de conocerme también.
+          </p>
+        </motion.div>
+
+        {/* Contact Information */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="space-y-8 text-end"
+        >
+          <div className="text-charcoal">
+            <p className="text-lg md:text-xl leading-relaxed mb-4">
+              No soy de pedir números a desconocidos y menos si no es en persona.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed">
+              Así que te dejaré mi email más abajo.
+            </p>
+            <span className='text-sm italic text-dark-gray'>
+              (Si, mi email, aqui somos profesionales ante todo)
+            </span>
+          </div>
+
+          
+        </motion.div>
+
+        {/* Humorous disclaimer */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-8 text-charcoal"
+          >
+            <p className="text-start text-base md:text-lg leading-relaxed font-serif italic">
+              Si me respondes, genial. Si no… simplemente fingiré normalidad cada vez que coincidamos en el gym.
+              <br />
+              (O cambiaré de horario, apellido e incluso de gimnasio como todo un estratega 🤠).
+            </p>
+          </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
 // Final Slide with White Background
 export const RomanticFinalSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -901,42 +1213,12 @@ export const RomanticFinalSlide: React.FC<MonochromeSlideProps> = ({ slide }) =>
               ease: "easeInOut",
             }}
           >
-            💝
+            🚀
           </motion.div>
         ))}
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-8 text-center h-full flex flex-col justify-center">
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1, type: "spring", bounce: 0.2 }}
-          className="mb-8 space-y-2"
-        >
-          <h2 className="text-2xl italic font-serif font-semibold  text-charcoal leading-relaxed text-deep-black text-start">
-            Tengo muchas más preguntas
-          </h2>
-          <h2 className="text-lg font-serif text-deep-black text-start">
-          pero solo las haré si esta propuesta logró su objetivo:
-          </h2>
-
-          <p className='text-lg font-serif text-deep-black text-start font-light'>
-            Que te nazca la curiosidad de conocerme también.
-          </p>
-          
-        </motion.div>
-
-        <div>
-          <p>
-            No soy de pedir números a desconocidas y menos si no es en persona.
-          </p>
-          <p>
-            Así que te dejo mi email e Instagram mas abajo. <br />
-          </p>
-          <a href="mailto:jedp082@gmail.com">jedp082@gmail.com</a>
-          <br />
-          <a href="https://instagram.com/jedp_82" target="_blank" rel="noopener noreferrer">@jedp_82</a>
-        </div>
 
         {slide.quote && (
           <motion.div
@@ -946,10 +1228,25 @@ export const RomanticFinalSlide: React.FC<MonochromeSlideProps> = ({ slide }) =>
             className="p-8 md:p-12 mb-8"
           >
             <blockquote className="text-xl md:text-2xl text-charcoal leading-relaxed font-serif italic">
-              "{slide.quote}"
+              Así que, Susana…
+            </blockquote>
+            <blockquote className="text-4xl md:text-2xl text-charcoal leading-relaxed font-serif italic">
+              ¿Nos conocemos?
             </blockquote>
           </motion.div>
         )}
+
+         {/* Contact Links */}
+          <div className="space-y-4">
+            <motion.a
+              href="mailto:jedp082@gmail.com"
+              className="block text-xl md:text-2xl text-white hover:text-pure-white transition-colors duration-300 font-mono"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              jedp082@gmail.com
+            </motion.a>
+          </div>
       </div>
     </motion.div>
   );

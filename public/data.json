@@ -32,6 +32,11 @@
                 ]
             },
             {
+                "id": 3.5,
+                "title": "Datos Curiosos sobre mí",
+                "type": "personal_facts"
+            },
+            {
                 "id": 4,
                 "title": "Razones Para Ser Amigos",
                 "points": [
@@ -39,6 +44,7 @@
                     "Me gusta entrenar (A ti también te gusta entrenar).",
                     "Tengo buena intuición con las personas valiosas.",
                     "No dejaría que nadie te quite o robe las máquinas. 😠",
+                    "Podemos hablar mal de las personas que roban o no comparten maquinas (y reírnos de ellas).",
                     "Bonus: tengo buenas playlists. (Y acepto recomendaciones)"
                 ],
                 "imagePlaceholder": "fun_facts_image.png"
@@ -50,9 +56,14 @@
                     "¿Cuál es tu playlist de confianza en el gym cuando necesitas motivación extra?",
                     "¿Cuál es el ejercicio que más te emociona dominar?",
                     "¿Cómo te gusta disfrutar tu tiempo libre cuando no estás entrenando?",
-                    "¿Crees que podríamos llevarnos bien",
+                    "¿Crees que podríamos llevarnos bien?",
                     "¿Dijiste la verdad en la pregunta anterior? 😏"
                 ]
+            },
+            {
+                "id": "cta",
+                "title": "Si te interesa conocerme",
+                "type": "call_to_action"
             },
             {
                 "id": "final",

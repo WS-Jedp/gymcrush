@@ -6,8 +6,10 @@ import {
   RomanticWelcomeSlide,
   RomanticReasonSlide,
   RomanticWhyYouSlide,
+  PersonalCuriousFactsSlide,
   RomanticFunFactsSlide,
   RomanticQuestionsSlide,
+  CallToActionSlide,
   RomanticFinalSlide
 } from './MonochromeSlides';
 
@@ -81,10 +83,14 @@ const HybridScrollRenderer: React.FC = () => {
         return <RomanticReasonSlide key={slide.id} {...props} />;
       case 3:
         return <RomanticWhyYouSlide key={slide.id} {...props} />;
+      case 3.5:
+        return <PersonalCuriousFactsSlide key={slide.id} {...props} />;
       case 4:
         return <RomanticFunFactsSlide key={slide.id} {...props} />;
       case 5:
         return <RomanticQuestionsSlide key={slide.id} {...props} />;
+      case 'cta':
+        return <CallToActionSlide key={slide.id} {...props} />;
       case 'final':
         return <RomanticFinalSlide key={slide.id} {...props} />;
       default:
