@@ -1,59 +1,88 @@
-# Audio Files Setup
+# Sistema de Audio Avanzado con Transiciones Suaves
 
-## Ubicación de los archivos de audio
+## Características principales
 
-Los archivos de audio deben colocarse en la carpeta `public/audio/` con los siguientes nombres:
+### 🎵 Continuidad de Audio
+- El audio continúa reproduciéndose entre secciones que comparten la misma configuración
+- Solo cambia cuando se detecta una nueva fuente de audio o configuración diferente
+
+### 🎛️ Transiciones Suaves
+- **Fade-out**: 600ms de transición suave al salir del audio actual
+- **Fade-in**: 800ms de transición suave al entrar al nuevo audio
+- **Crossfade**: Transición perfecta sin cortes abruptos
+
+### 🔄 Auto-loop Inteligente
+- Loop automático en el rango especificado para cada audio
+- Mantiene la reproducción continua durante toda la sección
+
+## Configuración de archivos de audio
+
+Los archivos de audio deben colocarse en la carpeta `public/audio/`:
 
 ```
 public/
   audio/
-    intro.mp3        # Para la slide de bienvenida
-    romantic.mp3     # Para la slide "Personas Especiales"  
-    thoughtful.mp3   # Para la slide "Por qué tú"
-    upbeat.mp3       # Para la slide "Datos Curiosos"
-    fun.mp3          # Para la slide "Razones Para Ser Amigos"
-    curious.mp3      # Para la slide "¿Qué me gustaría saber?"
-    hopeful.mp3      # Para la slide "Call to Action"
-    ending.mp3       # Para la slide final
+    superstar.mp3     # Audio principal usado en múltiples secciones
+    upbeat.mp3        # Para secciones dinámicas
+    fun.mp3           # Para secciones divertidas
+    curious.mp3       # Para secciones de preguntas
+    hopeful.mp3       # Para call-to-action
+    ending.mp3        # Para la despedida
 ```
 
-## Configuración de audio
+## Configuración en data.json
 
-Cada slide tiene configurado en `data.json` un rango de loop específico:
-
+### Ejemplo de continuidad (mismo audio en múltiples secciones):
 ```json
-"audio": {
-  "src": "/audio/intro.mp3",
-  "loop": {
-    "start": 0,    // Segundo donde inicia el loop
-    "end": 45      // Segundo donde termina el loop
+{
+  "id": 1,
+  "audio": {
+    "src": "/audio/superstar.mp3",
+    "loop": { "start": 1, "end": 120 }
+  }
+},
+{
+  "id": 2,  
+  "audio": {
+    "src": "/audio/superstar.mp3",  // Mismo archivo = continuidad
+    "loop": { "start": 30, "end": 90 }  // Puede cambiar el rango de loop
   }
 }
 ```
 
-## Características del reproductor
+### Ejemplo de transición (audio diferente):
+```json
+{
+  "id": 3,
+  "audio": {
+    "src": "/audio/upbeat.mp3",  // Archivo diferente = transición suave
+    "loop": { "start": 15, "end": 55 }
+  }
+}
+```
 
-- **Posición**: Flotante en la esquina superior izquierda
-- **Controles**: Solo play/pause (no saltar canciones)
-- **Modo**: Loop automático en el rango especificado
-- **Volumen**: 60% por defecto
-- **Responsive**: Se adapta al slide actual automáticamente
-- **Visual**: Indicadores animados cuando está reproduciendo
+## Estados visuales del reproductor
 
-## Formatos soportados
+- 🟢 **Verde**: Reproduciendo normalmente
+- 🟠 **Naranja**: Transicionando entre audios  
+- ⚪ **Gris**: Pausado
+- ⏳ **Spinner**: Cargando audio
 
-- MP3 (recomendado)
-- WAV
-- OGG
-- M4A
+## Mejores prácticas
 
-## Notas importantes
+1. **Audios de calidad**: Usa archivos MP3 de buena calidad (192kbps+)
+2. **Tamaño optimizado**: Mantén los archivos bajo 5MB para carga rápida
+3. **Loop suave**: Asegúrate de que el inicio y final del loop fluyan bien
+4. **Volumen consistente**: Normaliza el volumen entre diferentes archivos
 
-1. Los archivos de audio no están incluidos en el repositorio
-2. Asegúrate de que los archivos sean relativamente pequeños para una carga rápida
-3. El reproductor maneja errores de carga automáticamente
-4. Si un archivo no se encuentra, el reproductor no se mostrará para esa slide
+## Ejemplo de flujo de audio
 
-## Ejemplo de uso
+```
+Sección 1: superstar.mp3 (0s-120s) → [CONTINÚA]
+Sección 2: superstar.mp3 (30s-90s) → [CONTINÚA] 
+Sección 3: superstar.mp3 (30s-90s) → [FADE OUT → FADE IN]
+Sección 4: upbeat.mp3 (15s-55s) → [FADE OUT → FADE IN]
+Sección 5: fun.mp3 (8s-50s)
+```
 
-El reproductor cambiará automáticamente la música según la slide activa. Cada transición pausará la música anterior e iniciará la nueva (si está disponible).
+El sistema detecta automáticamente cuándo mantener la continuidad y cuándo hacer transiciones.

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useAudioPlayer } from '../hooks/useAudioPlayer';
+import { useAdvancedAudioPlayer } from '../hooks/useAdvancedAudioPlayer';
 
 interface AudioConfig {
   src: string;
@@ -25,7 +25,7 @@ export const MinimalAudioPlayer: React.FC<MinimalAudioPlayerProps> = ({
   hasUserInteracted = false,
   shouldAutoPlay = false
 }) => {
-  const { isPlaying, isLoading, toggle, canPlay } = useAudioPlayer(audioConfig, isEnabled && hasUserInteracted, shouldAutoPlay);
+  const { isPlaying, isLoading, isTransitioning, toggle, canPlay } = useAdvancedAudioPlayer(audioConfig, isEnabled && hasUserInteracted, shouldAutoPlay);
 
   if (!audioConfig) return null;
 
@@ -52,11 +52,11 @@ export const MinimalAudioPlayer: React.FC<MinimalAudioPlayerProps> = ({
         {/* Play/Pause Button */}
         <motion.button
           onClick={toggle}
-          disabled={!canPlay || isLoading}
+          disabled={!canPlay || isLoading || isTransitioning}
           className={`
             relative w-12 h-12 rounded-full flex items-center justify-center
             transition-all duration-300 overflow-hidden
-            ${canPlay && !isLoading 
+            ${canPlay && !isLoading && !isTransitioning
               ? 'bg-charcoal/80 hover:bg-charcoal text-white shadow-lg hover:shadow-xl' 
               : 'bg-gray-400/50 text-gray-300 cursor-not-allowed'
             }
@@ -67,7 +67,7 @@ export const MinimalAudioPlayer: React.FC<MinimalAudioPlayerProps> = ({
           }}
         >
           <AnimatePresence mode="wait">
-            {isLoading ? (
+            {isLoading || isTransitioning ? (
               <motion.div
                 key="loading"
                 initial={{ opacity: 0, rotate: 0 }}
@@ -88,8 +88,8 @@ export const MinimalAudioPlayer: React.FC<MinimalAudioPlayerProps> = ({
                 transition={{ duration: 0.2 }}
                 className="flex items-center justify-center"
               >
-                <div className="w-1.5 h-4 bg-white rounded-sm mr-1" />
-                <div className="w-1.5 h-4 bg-white rounded-sm" />
+                <div className="w-1.5 h-4 bg-black/60 rounded-sm mr-1" />
+                <div className="w-1.5 h-4 bg-black/60 rounded-sm" />
               </motion.div>
             ) : (
               <motion.div
@@ -143,9 +143,13 @@ export const MinimalAudioPlayer: React.FC<MinimalAudioPlayerProps> = ({
               {slideTitle || 'Reproduciendo música'}
             </p>
             <div className="flex items-center space-x-1 mt-1">
-              <div className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'bg-green-500' : 'bg-gray-400'}`} />
+              <div className={`w-1.5 h-1.5 rounded-full ${
+                isTransitioning ? 'bg-orange-500' : 
+                isPlaying ? 'bg-green-500' : 'bg-gray-400'
+              }`} />
               <span className="text-xs text-gray-600">
-                {isPlaying ? 'Reproduciendo' : 'Pausado'}
+                {isTransitioning ? 'Cambiando...' : 
+                 isPlaying ? 'Reproduciendo' : 'Pausado'}
               </span>
             </div>
           </div>
@@ -164,7 +168,7 @@ export const MinimalAudioPlayer: React.FC<MinimalAudioPlayerProps> = ({
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className="w-0.5 bg-white/60 rounded-full"
+                className="w-0.5 bg-gray-400 rounded-full"
                 animate={{
                   height: [4, 12, 4],
                 }}

@@ -296,7 +296,7 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = () => {
               >
                 <div className="flex items-start space-x-3">
                   <div className="flex-1">
-                    <p className="text-md md:text-xl text-charcoal leading-relaxed premium-text">
+                    <p className="text-xl md:text-2xl text-charcoal leading-relaxed premium-text">
                       Podría haber buscado tu número o soltado un comentario cualquiera en medio de una serie de sentadillas. 🤔
                     </p>
                   </div>
@@ -315,7 +315,7 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = () => {
               >
                 <div className="flex items-start space-x-3">
                   <div className="flex-1">
-                    <blockquote className="text-md md:text-xl text-charcoal leading-relaxed font-serif italic font-semibold">
+                    <blockquote className="text-xl md:text-2xltext-charcoal leading-relaxed font-serif italic font-semibold">
                       Pero no. <br />
                       Preferí hacer algo distinto.
                     </blockquote>
@@ -335,7 +335,7 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = () => {
               >
                 <div className="flex items-start space-x-3">
                   <div className="flex-1">
-                    <p className="text-md md:text-xl text-charcoal leading-relaxed premium-text">
+                    <p className="text-xl md:text-2xl text-charcoal leading-relaxed premium-text">
                      No para impresionarte. Sino para que sepas que, si decidí acercarme, es porque creo que conocerte vale el intento… y el gesto.
                     </p>
                   </div>
@@ -356,7 +356,7 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = () => {
                 <div className="flex items-start space-x-3">
                   <div className="flex-1">
                     <p className="text-xs text-charcoal leading-relaxed premium-text">
-                     (Además, hacer sitios web es más fácil que hablarle a alguien que te intimida un poco e interrumpirle sus series).
+                     (Además, hacer sitios web es más fácil que hablarle a alguien que te intimida un poco e interrumpirle su serie).
                     </p>
                   </div>
                 </div>
@@ -588,14 +588,14 @@ export const RomanticFunFactsSlide: React.FC<MonochromeSlideProps> = ({ slide })
           initial={{ y: -30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="flex-shrink-0 pt-8 pb-4 px-8"
+          className="flex-shrink-0 pt-24 pb-4 px-8"
         >
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-3xl md:text-4xl font-bold text-pure-white">
               {slide.title}
             </h2>
             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-              <span className="text-sm text-charcoal">💫</span>
+              <span className="text-sm text-charcoal">🤝</span>
             </div>
           </div>
           
@@ -1108,7 +1108,7 @@ export const CallToActionSlide: React.FC<MonochromeSlideProps> = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-8 text-center h-full flex flex-col justify-between p-16">
+      <div className="relative z-10 max-w-4xl mx-auto px-8 pt-24 text-center h-full flex flex-col justify-between p-16">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -1118,10 +1118,10 @@ export const CallToActionSlide: React.FC<MonochromeSlideProps> = () => {
           <h2 className="text-2xl italic font-serif font-semibold text-charcoal leading-relaxed text-deep-black text-start">
             Tengo muchas más preguntas
           </h2>
-          <h2 className="text-lg font-serif text-deep-black text-start">
+          <h2 className="text-xl font-serif text-deep-black text-start">
             pero solo las haré si esta propuesta logró su objetivo:
           </h2>
-            <p className='text-lg font-serif text-deep-black text-start font-light'>
+            <p className='text-xl font-serif text-deep-black text-center font-light mt-6 italic'>
             Que te nazca la curiosidad de conocerme también.
           </p>
         </motion.div>
@@ -1134,10 +1134,10 @@ export const CallToActionSlide: React.FC<MonochromeSlideProps> = () => {
           className="space-y-8 text-end"
         >
           <div className="text-charcoal">
-            <p className="text-lg md:text-xl leading-relaxed mb-4">
+            <p className="text-xl md:text-xl leading-relaxed mb-4">
               No soy de pedir números a desconocidos y menos si no es en persona.
             </p>
-            <p className="text-lg md:text-xl leading-relaxed">
+            <p className="text-xl md:text-xl leading-relaxed">
               Así que te dejaré mi email más abajo.
             </p>
             <span className='text-sm italic text-dark-gray'>
