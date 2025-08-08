@@ -46,7 +46,7 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
         >
 
           {/* Title with Elegant Typography */}
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-deep-black mb-4 premium-title">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-deep-black mb-4 premium-title text-start">
             {slide.title.split(" ").map((word, wordIndex) => (
               <motion.span
                 key={wordIndex}
@@ -69,15 +69,27 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
             initial={{ width: 0 }}
             whileInView={{ width: "4rem" }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="mx-auto h-px bg-charcoal mb-4"
+            className=" h-px bg-charcoal mb-4"
           />
 
-          <p className='text-xs font-light text-charcoal text-end'>
-             De origen hebreo (derivado de "shoshan" o "shoshannah"), significa "lirio" o "rosa", y se asocia con la belleza, pureza e inocencia.
-          </p>
-          <p className='text-xs font-light text-charcoal text-end mt-1'>
-            - Yep, no es una coincidencia tu nombre
-          </p>
+          <div className='space-y-1'>
+              <p className='text-md font-semibold italic text-charcoal text-start'>
+                Verbo
+              </p>
+              <p className='text-sm font-light text-charcoal text-start'>
+                Acción de abrir una puerta entre dos mundos.
+              </p>
+              <p className='text-sm font-light text-charcoal text-start'>
+                Requiere curiosidad, respeto y una dosis de coraje.
+              </p>
+              <p className='text-sm font-light text-charcoal text-start'>
+                Puede empezar con un hola, una sonrisa,
+              </p>
+              <p className='text-sm font-light text-charcoal text-start'>
+                O… con un sitio web como este.
+              </p>
+          </div>
+
         </motion.div>
 
         {/* Quote Section */}
@@ -88,13 +100,13 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
           transition={{ duration: 0.8, delay: 0.5 }}
           className="p-8 md:p-12 max-w-3xl mx-auto"
         >
-          <blockquote className="text-xl md:text-2xl text-charcoal leading-relaxed mb-6 font-serif italic text-start">
-            {slide.quote}
+          <blockquote className="text-lg md:text-2xl text-charcoal leading-relaxed mb-6 font-serif italic text-start">
+            Pero no siempre es fácil.
           </blockquote>
 
           {slide.subtext && (
             <div className="space-y-6">
-              {slide.subtext.map((text, index) => (
+              {slide.subtext.map((_, index) => (
                 <motion.p
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -104,9 +116,10 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
                     delay: 0.7 + index * 0.1,
                     ease: [0.215, 0.61, 0.355, 1]
                   }}
-                  className="text-lg text-dark-gray leading-relaxed text-center premium-text text-start"
+                  className="text-md text-dark-gray leading-relaxed text-center premium-text text-start"
                 >
-                  {text}
+                  Especialmente cuando la otra persona parece tan enfocada en sus metas que incluso las máquinas del gimnasio parecen pedirle permiso para ser usadas. <br />
+(Sí, hablo de ti 🏋️‍♀️😉)
                 </motion.p>
               ))}
             </div>
@@ -118,7 +131,7 @@ export const RomanticWelcomeSlide: React.FC<MonochromeSlideProps> = ({ slide }) 
 };
 
 // Monochrome Reason Slide with Dark Background
-export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
+export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -131,10 +144,8 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
   return (
     <motion.div
       ref={ref}
-      className="relative h-screen flex items-center justify-center bg-deep-black paper-texture"
+      className="relative h-screen flex items-center justify-center bg-pure-white letter-paper"
     >
-      
-      
       <div className="relative z-10 max-w-6xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full">
         {/* Title Section */}
         <motion.div
@@ -142,23 +153,23 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
           className="lg:col-span-5"
         >
           <motion.h2
-            className="text-4xl md:text-6xl font-bold leading-tight mb-8 text-pure-white premium-title"
+            className="text-5xl md:text-6xl font-bold leading-tight mb-8 text-charcoal premium-title"
           >
             <motion.span
               initial={{ y: 80, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-              className="block"
+              className="block font-extrabold text-end"
             >
-              Personas Especiales
+              Susana*
             </motion.span>
             <motion.span
               initial={{ y: 80, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-              className="block text-medium-gray"
+              className="block text-2xl md:text-4xl text-charcoal text-end italic font-medium"
             >
-              Merecen Gestos Especiales
+              Un nombre con historia
             </motion.span>
           </motion.h2>
 
@@ -184,22 +195,19 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
           >
             {/* Quote with Elegant Border */}
             <div className="border-l-2 border-white pl-6 mb-8">
-              <blockquote className="text-xl md:text-2xl text-pure-white leading-relaxed font-serif italic">
-                {slide.quote}
+              <blockquote className="text-xl md:text-2xl text-charcoal leading-relaxed font-serif italic">
+                Susana, de origen hebreo. <br />
+Significa “lirio” o “flor blanca”. <br />
+Como esas personas que no necesitan alzar la voz para hacerse notar. <br />
               </blockquote>
             </div>
 
-            {/* Points with Staggered Animation */}
-            {slide.points && (
-              <div className="space-y-6">
-                {slide.points.map((point, index) => (
+    
                   <motion.div
-                    key={index}
                     initial={{ x: -30, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ 
                       duration: 0.8, 
-                      delay: 0.6 + index * 0.2,
                       ease: [0.215, 0.61, 0.355, 1]
                     }}
                     className="flex items-start space-x-4"
@@ -207,15 +215,14 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
                     <motion.div
                       className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"
                       whileInView={{ scale: [0, 1.5, 1] }}
-                      transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
+                      transition={{ duration: 0.6, delay: 0.8 * 0.2 }}
                     />
-                    <p className="text-lg text-light-gray leading-relaxed premium-text">
-                      {point}
+                    <p className="text-lg text-charcoal leading-relaxed premium-text">
+                      No es un nombre cualquiera. <br />
+                      Por eso, esta tampoco es una invitación cualquiera. <br />
                     </p>
                   </motion.div>
-                ))}
-              </div>
-            )}
+           
           </motion.div>
         </motion.div>
       </div>
@@ -230,7 +237,7 @@ export const RomanticReasonSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
 };
 
 // Why You Slide with White Background and Professional Layout
-export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
+export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -244,9 +251,9 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
     <motion.div
       ref={ref}
       style={{ scale }}
-      className="relative h-screen flex items-center justify-center bg-light-gray letter-paper"
+      className="relative h-screen flex flex-col items-center justify-between bg-light-gray letter-paper"
     >
-      <div className="relative z-10 max-w-5xl mx-auto px-8 h-full flex flex-col justify-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-8 h-full flex flex-col justify-between">
         {/* Title with Professional Icon */}
         <motion.div
           style={{ y }}
@@ -261,73 +268,102 @@ export const RomanticWhyYouSlide: React.FC<MonochromeSlideProps> = ({ slide }) =
             <span className="text-xl text-pure-white">💫</span>
           </motion.div>
           
-          <h2 className="text-4xl md:text-6xl font-bold text-deep-black mb-4 premium-title">
+          <h2 className="text-4xl md:text-6xl font-bold text-deep-black mb-4 premium-title text-start">
             <motion.span
               initial={{ y: 60, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
               className="block"
             >
-              {slide.title}
+              Personas especiales, Merecen gestos especiales
             </motion.span>
           </h2>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-dark-gray font-serif italic"
-          >
-            (en serio, esto es importante)
-          </motion.p>
         </motion.div>
 
-        {/* Points List with Professional Cards */}
-        {slide.points && (
-          <div className="space-y-6">
-            {slide.points.map((point, index) => (
+          
+          <section className='flex flex-col space-y-6 mb-16 items-end justify-end text-end'>
+
               <motion.div
-                key={index}
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ 
                   duration: 0.8, 
-                  delay: index * 0.15,
+                  delay: 0.15,
                   ease: [0.215, 0.61, 0.355, 1]
                 }}
                 whileHover={{ y: -2 }}
-                className="p-6 md:p-8 group cursor-pointer"
+                className="group cursor-pointer"
               >
-                <div className="flex items-start space-x-6">
-                  {/* Number */}
-                  <motion.div
-                    className="w-10 h-10 text-deep-black rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm"
-                    whileInView={{ rotate: [0, 360] }}
-                    transition={{ duration: 1, delay: index * 0.2 + 0.5 }}
-                  >
-                    {index + 1}
-                  </motion.div>
-                  
-                  {/* Content */}
+                <div className="flex items-start space-x-3">
                   <div className="flex-1">
-                    <p className="text-lg md:text-xl text-charcoal leading-relaxed premium-text">
-                      {point}
+                    <p className="text-md md:text-xl text-charcoal leading-relaxed premium-text">
+                      Podría haber buscado tu número o soltado un comentario cualquiera en medio de una serie de sentadillas. 🤔
                     </p>
                   </div>
                 </div>
-
-                {/* Hover Effect Line */}
-                <motion.div
-                  className="mt-4 h-px bg-charcoal opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ duration: 1, delay: index * 0.3 + 0.8 }}
-                />
               </motion.div>
-            ))}
+              <motion.div
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.15,
+                  ease: [0.215, 0.61, 0.355, 1]
+                }}
+                whileHover={{ y: -2 }}
+                className="group cursor-pointer"
+              >
+                <div className="flex items-start space-x-3">
+                  <div className="flex-1">
+                    <blockquote className="text-md md:text-xl text-charcoal leading-relaxed font-serif italic font-semibold">
+                      Pero no. <br />
+                      Preferí hacer algo distinto.
+                    </blockquote>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.15,
+                  ease: [0.215, 0.61, 0.355, 1]
+                }}
+                whileHover={{ y: -2 }}
+                className="group cursor-pointer"
+              >
+                <div className="flex items-start space-x-3">
+                  <div className="flex-1">
+                    <p className="text-md md:text-xl text-charcoal leading-relaxed premium-text">
+                     No para impresionarte. Sino para que sepas que, si decidí acercarme, es porque creo que conocerte vale el intento… y el gesto.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.15,
+                  ease: [0.215, 0.61, 0.355, 1]
+                }}
+                whileHover={{ y: -2 }}
+                className="group cursor-pointer"
+              >
+                <div className="flex items-start space-x-3">
+                  <div className="flex-1">
+                    <p className="text-xs text-charcoal leading-relaxed premium-text">
+                     (Además, hacer sitios web es más fácil que hablarle a alguien que te intimida un poco e interrumpirle sus series).
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+          </section>
+
           </div>
-        )}
-      </div>
     </motion.div>
   );
 };
@@ -818,97 +854,6 @@ export const RomanticQuestionsSlide: React.FC<MonochromeSlideProps> = ({ slide }
   );
 };
 
-// Call to Action with Dark Background
-export const RomanticCallToActionSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleAction = (action: string) => {
-    if (action === '#contacto') {
-      console.log('Contact action triggered');
-    } else if (action === '#encuentro-personal') {
-      console.log('Personal meeting action triggered');
-    }
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      className="relative h-screen flex items-center justify-center bg-deep-black paper-texture overflow-hidden"
-    >
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/4 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.05, 0.15, 0.05],
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-white/3 rounded-full blur-2xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.03, 0.1, 0.03],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-4xl mx-auto px-8 text-center h-full flex flex-col justify-center">
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <div className="w-20 h-20 mx-auto mb-6 bg-pure-white rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-2xl text-deep-black">🤝</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-pure-white mb-8 premium-title">
-            {slide.title}
-          </h2>
-        </motion.div>
-
-        {slide.quote && (
-          <motion.blockquote
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="p-8 md:p-12 mb-12"
-          >
-            <p className="text-xl md:text-2xl text-light-gray leading-relaxed font-serif italic">
-              "{slide.quote}"
-            </p>
-          </motion.blockquote>
-        )}
-
-        {slide.cta && (
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-4"
-          >
-            <button
-              onClick={() => handleAction(slide.cta!.action)}
-              className={slide.cta.type === 'primary' ? 'premium-button-gold' : 'premium-button-secondary'}
-            >
-              {slide.cta.label}
-            </button>
-            
-            {slide.id === 'secret' && (
-              <p className="text-sm text-medium-gray mt-4 font-serif italic">
-                Una experiencia más íntima y personal
-              </p>
-            )}
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
-  );
-};
-
 // Final Slide with White Background
 export const RomanticFinalSlide: React.FC<MonochromeSlideProps> = ({ slide }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -966,15 +911,32 @@ export const RomanticFinalSlide: React.FC<MonochromeSlideProps> = ({ slide }) =>
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, type: "spring", bounce: 0.2 }}
-          className="mb-8"
+          className="mb-8 space-y-2"
         >
-          <div className="w-24 h-24 mx-auto mb-6 bg-charcoal rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-3xl text-pure-white">👑</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-deep-black mb-8 premium-title">
-            {slide.title}
+          <h2 className="text-2xl italic font-serif font-semibold  text-charcoal leading-relaxed text-deep-black text-start">
+            Tengo muchas más preguntas
           </h2>
+          <h2 className="text-lg font-serif text-deep-black text-start">
+          pero solo las haré si esta propuesta logró su objetivo:
+          </h2>
+
+          <p className='text-lg font-serif text-deep-black text-start font-light'>
+            Que te nazca la curiosidad de conocerme también.
+          </p>
+          
         </motion.div>
+
+        <div>
+          <p>
+            No soy de pedir números a desconocidas y menos si no es en persona.
+          </p>
+          <p>
+            Así que te dejo mi email e Instagram mas abajo. <br />
+          </p>
+          <a href="mailto:jedp082@gmail.com">jedp082@gmail.com</a>
+          <br />
+          <a href="https://instagram.com/jedp_82" target="_blank" rel="noopener noreferrer">@jedp_82</a>
+        </div>
 
         {slide.quote && (
           <motion.div
@@ -988,50 +950,6 @@ export const RomanticFinalSlide: React.FC<MonochromeSlideProps> = ({ slide }) =>
             </blockquote>
           </motion.div>
         )}
-
-        {slide.postscript && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg text-dark-gray leading-relaxed font-serif italic mb-8 premium-text"
-          >
-            {slide.postscript}
-          </motion.p>
-        )}
-
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-12"
-        >
-          <div className="flex justify-center space-x-3">
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 bg-charcoal rounded-full"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.7, 1, 0.7],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: i * 0.2,
-                }}
-              />
-            ))}
-          </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-sm text-dark-gray mt-4 font-serif italic"
-          >
-            Con todo mi respeto y admiración,<br />
-          </motion.p>
-        </motion.div>
       </div>
     </motion.div>
   );
