@@ -16,6 +16,13 @@ export interface Slide {
     action: string;
   };
   postscript?: string;
+  audio?: {
+    src: string;
+    loop: {
+      start: number;
+      end: number;
+    };
+  };
 }
 
 export interface StorytellingData {

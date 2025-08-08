@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { motion } from 'motion/react';
 import { useSlideStore } from '../../store/useSlideStore';
 import { useSwipe } from '../../hooks/useSwipe';
+import { MinimalAudioPlayer } from '../../components/MinimalAudioPlayer';
 import { 
   RomanticWelcomeSlide,
   RomanticReasonSlide,
@@ -13,7 +14,15 @@ import {
   RomanticFinalSlide
 } from './MonochromeSlides';
 
-const HybridScrollRenderer: React.FC = () => {
+interface HybridScrollRendererProps {
+  hasAudioPermission?: boolean;
+  shouldAutoPlay?: boolean;
+}
+
+const HybridScrollRenderer: React.FC<HybridScrollRendererProps> = ({ 
+  hasAudioPermission = false,
+  shouldAutoPlay = false
+}) => {
   const { slides, currentSlideIndex, loadData, isLoading, error, goToSlide } = useSlideStore();
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -136,6 +145,15 @@ const HybridScrollRenderer: React.FC = () => {
 
   return (
     <div className="relative">
+      {/* Audio Player - Dynamic based on current slide */}
+      <MinimalAudioPlayer 
+        audioConfig={slides[currentSlideIndex]?.audio}
+        slideTitle={slides[currentSlideIndex]?.title}
+        isEnabled={hasAudioPermission}
+        hasUserInteracted={hasAudioPermission}
+        shouldAutoPlay={shouldAutoPlay}
+      />
+
       {/* Scroll Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 w-full h-1 bg-soft-gray z-50 origin-left"
